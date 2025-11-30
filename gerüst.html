@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,39 @@
     <script src="./basics.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <h1 id="main-title"> Javascript Mini Übung</h1>
 
-    <di class="box" id="color-box">
+    <div class="box" id="color-box">
         <p id="info-text">Klick auf den Button</p>
         <button id="action-btn">Klick mich !!</button>
     </div>
-    
-    
+
+    <form class="input-box" id="output-box">
+        <p id="output-text">Probier es doch gerne aus 😅 </p>
+        <label for="name-input">Gib deinen Namen ein:</label>
+        <input type="text" id="name-input" placeholder="Dein Name">
+        <span id="greeting-text"></span>
+        <label for="amount-input">Anzahl der Sterne:</label>
+        <input type="number" id="amount-input" placeholder="Zahl eingeben" min="0" max="10">
+        <input type="submit" id="generate-btn" value="Sterne generieren">
+    </form>
+
+    <!-- modify this form HTML and place wherever you want your form -->
+    <form onsubmit="sendMail(event)" class="email-field" action="https://formspree.io/f/xblnlblg" method="POST">
+        <label>
+            Your email:
+            <input type="email" name="email">
+        </label>
+        <label>
+            Your message:
+            <textarea name="message"></textarea>
+        </label>
+        <!-- your other form fields go here -->
+        <button type="submit">Send</button>
+    </form>
+
 </body>
+
 </html>
