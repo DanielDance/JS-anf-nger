@@ -1,3 +1,4 @@
+/* Grundlayout */
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #111;
@@ -11,6 +12,7 @@ body {
   min-height: 100vh;
 }
 
+/* Farbbox oben */
 .box {
   background: #5dc0ee;
   padding: 20px;
@@ -23,14 +25,16 @@ body {
   background: #cf2e9a;
 }
 
-/* normaler button*/
+/* normaler Button */
 #action-btn {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
   border-radius: 15px;
+  border: none;
 }
 
+/* Name + Sterne-Box */
 .input-box {
   margin-top: 20px;
   display: flex;
@@ -38,6 +42,7 @@ body {
   align-items: center;
   gap: 20px;
 }
+
 .input-box input {
   padding: 10px;
   font-size: 16px;
@@ -46,8 +51,10 @@ body {
   width: 200px;
 }
 
+/* Kontaktformular */
 .email-field {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 10px;
   padding: 25px;
@@ -56,23 +63,55 @@ body {
   justify-content: center;
   margin-top: 50px;
   font-size: 16px;
-
-
-
+  background: rgba(255, 255, 255, 0.05);
 }
 
-/* extra klasse für flammne*/
+.email-field input,
+.email-field textarea {
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  padding: 8px;
+}
+
+/* Überschrift 2 */
+h2 {
+  margin-bottom: 30px;
+  font-size: 2.4rem;
+}
+
+/* Zutaten-Rechner */
+.rechner {
+  margin-top: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgb(0, 0, 0, 0.6);
+  width: 300px;
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Ergebnis-Kasten */
+.kasten {
+  margin-top: 15px;
+  text-align: left;
+}
+
+/* extra Klasse für Flammen-Effekt am Button */
 .burning {
   animation: burn 0.4s infinite alternate;
 }
 
-/* simple Flammen animation*/
+/* simple Flammen-Animation */
 @keyframes burn {
   from {
-    box-shadow: 0 0 5px #ff8800, 00 15px #ff0000;
+    box-shadow: 0 0 5px #ff8800, 0 0 15px #ff0000;
   }
-
   to {
-    box-shadow: 0 0 10px #ffdd00, 0 0 25px #ff5500;
+    box-shadow: 0 0 10px #ffdd0c, 0 0 25px #ff5500;
   }
 }

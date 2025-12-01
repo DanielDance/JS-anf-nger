@@ -2,45 +2,92 @@
 <html lang="de">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Andres Übungs Projekt</title>
+
+    <!-- JavaScript (mit defer, damit es NACH dem Laden des HTMLs läuft) -->
     <script src="./basics.js" defer></script>
-    <link rel="stylesheet" href="style.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <h1 id="main-title"> Javascript Mini Übung</h1>
+    <!-- Überschrift / Titel -->
+    <h1 id="main-title">Javascript Mini Übung</h1>
 
+    <!-- Farbbox + Button -->
     <div class="box" id="color-box">
-        <p id="info-text">Klick auf den Button</p>
-        <button id="action-btn">Klick mich !!</button>
+        <p id="info-text">Klick auf den Button 👇</p>
+        <button id="action-btn">Klick mich !!!</button>
     </div>
 
+    <!-- Name + Sterne-Formular -->
     <form class="input-box" id="output-box">
-        <p id="output-text">Probier es doch gerne aus 😅 </p>
+        <p id="output-text">Probier es doch gerne aus 😅</p>
+
         <label for="name-input">Gib deinen Namen ein:</label>
-        <input type="text" id="name-input" placeholder="Dein Name">
+        <input type="text" id="name-input" placeholder="Dein Name" />
+
         <span id="greeting-text"></span>
+
         <label for="amount-input">Anzahl der Sterne:</label>
-        <input type="number" id="amount-input" placeholder="Zahl eingeben" min="0" max="10">
-        <input type="submit" id="generate-btn" value="Sterne generieren">
+        <input type="number" id="amount-input" placeholder="Zahl eingeben" min="0" max="10" />
+
+        <input type="submit" id="generate-btn" value="Sterne generieren" />
     </form>
 
-    <!-- modify this form HTML and place wherever you want your form -->
-    <form onsubmit="sendMail(event)" class="email-field" action="https://formspree.io/f/xblnlblg" method="POST">
+    <!-- Kontaktformular mit Formspree -->
+    <form onsubmit="sendMail(event)" class="email-field" method="POST" action="https://formspree.io/f/xblnhlbg">
         <label>
             Your email:
-            <input type="email" name="email">
+            <input type="email" name="email" required />
         </label>
+
         <label>
             Your message:
-            <textarea name="message"></textarea>
+            <textarea name="message" required></textarea>
         </label>
-        <!-- your other form fields go here -->
+
         <button type="submit">Send</button>
     </form>
 
+    <!-- Zutaten-Rechner -->
+    <h2>Zutaten – Rechner</h2>
+
+    <div class="rechner">
+        <label for="personen">Personen:</label>
+        <input type="number" id="personen" value="1" min="1" />
+
+        <button type="button" id="calculate-btn">Berechne Zutaten</button>
+
+        <div id="ergebnis" class="kasten">
+            <!-- Ergebnis wird hier angezeigt -->
+        </div>
+    </div>
+
+    <h2>Emoji Genrator</h2>
+    <form id="emoji-form" class="rechner">
+        <label for="emoji-input">Welches Emoji/Wort:</label>
+        <input type="text" id="emoji-input" placeholder="Z.B. 😀 oder LOL" />
+
+        <label for="emoji-amount">Emojis erzeugen:</label>
+        <input type="number" id="emoji-amount" value="3" min="1" max="20" />
+
+        <input type="submit" value="Emojis erzeugen" />
+    </form>
+    <div id="emoji-output" class="kasten">
+        <!-- Emoji Ergebnis wird hier angezeigt -->
+    </div>
+
+    <h2>Diamanten Rechner</h2>
+    <label for="Spieler">Anzahl Spieler:</label>
+    <input type="number" id="spieler" value="1" min="1" />
+    <button type="button" id="diamanten-btn">Berechne Diamanten</button>
+    <div id="diamanten-ergebnis" class="kasten">
+        <!-- Diamanten Ergebnis wird hier angezeigt -->
+    </div>
 </body>
 
 </html>
