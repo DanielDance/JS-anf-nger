@@ -14,6 +14,8 @@
 </head>
 
 <body>
+    <!--Navbar-->
+
     <!-- Überschrift / Titel -->
     <h1 id="main-title">Javascript Mini Übung</h1>
 
@@ -88,6 +90,48 @@
     <div id="diamanten-ergebnis" class="kasten">
         <!-- Diamanten Ergebnis wird hier angezeigt -->
     </div>
+
+
+
+    <h2>Minecraft Challenges Genrator</h2>
+    <button id="challenge-btn">Generiere Challenge</button>
+    <div id="challenge-output" class="kasten">
+        <!-- Challenge Ergebnis wird hier angezeigt -->
+    </div>
+
+
+
+    <!--chefkoch Zutaten-->
+
+    <section class="zutaten">
+        <h2>Zutaten Spaghetti</h2>
+        <div class="portion-controll">
+            <span>Für</span>
+            <span id="portion-count">1</span>
+            <span>Portion</span>
+
+            <button id="minus-btn">-</button>
+            <button id="plus-btn">+</button>
+        </div>
+
+        <ul class="zutaten-liste">
+            <li class="zutat" data-base="100" data-name="Spaghetti">
+                <span class="menge">100g</span>
+                <span class="name">Spaghetti</span>
+            </li>
+
+            <li class="zutat" data-base="50" data-name="Speck">
+                <span class="menge">50g</span>
+                <span class="name">Speck</span>
+            </li>
+
+            <li class="zutat" data-base="1" data-name="Zwiebel">
+                <span class="menge">1</span>
+                <span class="name">Zwiebel</span>
+            </li>
+
+        </ul>
+    </section>
 </body>
 
 </html>

@@ -122,17 +122,17 @@ calcBtn.addEventListener('click', () => {
 });
 
 // ===== 5. Emoji-Generator =====
-const emojiForm   = document.getElementById('emoji-form');
-const emojiInput  = document.getElementById('emoji-input');
+const emojiForm = document.getElementById('emoji-form');
+const emojiInput = document.getElementById('emoji-input');
 const emojiAmount = document.getElementById('emoji-amount');
 const emojiOutput = document.getElementById('emoji-output');
 
 emojiForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  
+
   const symbol = emojiInput.value.trim();
   const amount = Number(emojiAmount.value);
-  
+
   // Eingabe validieren
   if (!symbol) {
     emojiOutput.textContent = 'Bitte ein Emoji oder Wort eingeben.';
@@ -142,7 +142,7 @@ emojiForm.addEventListener('submit', (event) => {
     emojiOutput.textContent = 'Bitte eine Zahl zwischen 1 und 20 eingeben.';
     return;
   }
-  
+
   // 2. Wiedrholung erzeugen
   let result = '';
   for (let i = 0; i < amount; i++) {
@@ -154,25 +154,106 @@ emojiForm.addEventListener('submit', (event) => {
 });
 
 // ===== 5. Diamanten-Verteiler =====
-const spielerInput     = document.getElementById('spieler');
-const diamantBtn       = document.getElementById('diamant-btn');
-const diamantErgebnis  = document.getElementById('diamant-ergebnis');
+const DIAMANTEN_PRO_SPIELER = 12;
+
+const spielerInput = document.getElementById('spieler');
+const diamantBtn = document.getElementById('diamanten-btn');
+const diamantErgebnis = document.getElementById('diamanten-ergebnis');
 
 diamantBtn.addEventListener('click', () => {
+  console.log('Diamant-Button wurde geklickt');
+
+  // 1. Wert aus dem Input holen und in eine Zahl umwandeln
   const spieler = Number(spielerInput.value);
+
+  // 2. Prüfen, ob gültige Zahl
   if (isNaN(spieler) || spieler < 1) {
     diamantErgebnis.textContent = 'Bitte mindestens 1 Spieler eingeben.';
     return;
   }
 
-  // Diamanten berechnen
+  // 3. Diamanten berechnen
   const gesamt = spieler * DIAMANTEN_PRO_SPIELER;
- 
-  // Ergebnis anzeigen
-  diamantErgebnis.innerHTML = `<strong>Diamanten-Verteiung</strong><br>
-  Spieler: ${spieler}<br>
-   Benötigte Diamanten insgesamt: ${gesamt} 💎 `;
+
+  // 4. Ergebnis anzeigen
+  diamantErgebnis.innerHTML = `
+    <strong>Diamanten-Verteilung</strong><br>
+    Spieler: ${spieler}<br>
+    Benötigte Diamanten insgesamt: ${gesamt} 💎
+  `;
 });
+
+// ===== 6. Minecraft Challenge Generator =====
+
+// Liste der möglichen Challenges
+const challenges = [
+  'Baue ein Baumhaus in einem Dschungelbiom.',
+  'Finde und besiege den Enderdrachen ohne Rüstung.',
+  'Erstelle eine automatische Farm für Weizen.',
+  'Erkunde eine Festung und finde den End-Portal-Rahmen.',
+  'Baue eine Unterwasserbasis.',
+  'Sammle alle Arten von Blumen im Spiel.',
+  'Erstelle eine Eisenfarm.',
+  'Baue eine Brücke über ein ganzes Tal.',
+  'Finde und zähme einen Ozelot.',
+  'Erstelle ein Redstone-basiertes Sicherheitssystem für dein Haus.',
+];
+// Elemente holen
+const challengeBtn = document.getElementById('challenge-btn');
+const challengeOutput = document.getElementById('challenge-output');
+
+// 3. Hilfsfunktion: Zufälligen index generieren
+function getRandomIndex(max) {
+  return Math.floor(Math.random() * max);
+}
+// Event-Listener für den Button
+challengeBtn.addEventListener('click', () => {
+  const index = getRandomIndex(challenges.length);
+  const challengeText = challenges[index];
+  challengeOutput.textContent = `🎮 Deine Challenge: ${challengeText}`;
+});
+
+
+
+// ===== Zutaten Spaghetti =====
+const portionCountEL = document.getElementById('portion-count');
+const minusBtn = document.getElementById('minus-btn');
+const plusBtn = document.getElementById('plus-btn');
+const zutaten = document.querySelectorAll('.zutat');
+
+let portionen = 1; // Startwert
+
+function updateZutaten() {
+  zutaten.forEach((zutat) => {
+    const basisMenge = Number(zutat.dataset.base);
+    const neueMenge = basisMenge * portionen;
+
+    zutat.textContent = `${neueMenge} g ${zutat.dataset.name}`;
+  });
+}
+
+
+minusBtn.addEventListener('click', () => {
+  if (portionen > 1) {
+    portionen--;
+    portionCountEL.textContent = portionen;
+    updateZutaten();
+  }
+});
+
+plusBtn.addEventListener('click', () => {
+  portionen++;
+  portionCountEL.textContent = portionen;
+  updateZutaten();
+
+});
+
+
+
+
+
+
+
 
 
 
